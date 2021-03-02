@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+message String {
+    string value = 1;
+}
+
+service Inverter {
+    rpc Invert(String) returns (String) {}
+}
