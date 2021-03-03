@@ -1,13 +1,17 @@
 import random
 
 def invert(string):
-    list_random = random.sample(range(0, len(string)), len(string)//2)
-    ret_str = ''
-    for i in range(len(string)):
-        if i in list_random:
-            # ret_str += str(chr(~ord(string[i])))
-            # print(chr(~ord(string[i])))
-            print(i)
+    bin_str = ' '.join(format(ord(x), 'b') for x in string if x!= ' ')
+    random_numbers = random.sample(range(0, len(bin_str)), len(bin_str)//2)
+    ib_string = ''
+    for i in range(len(random_numbers)):
+        if i in random_numbers:
+            if bin_str[i] == "1":
+                ib_string += "0"
+            elif bin_str[i] == "0":
+                ib_string += "1"
+            else:
+                ib_string += " "
         else:
-            ret_str += str(string[i])
-    return ret_str
+            ib_string += str(bin_str[i])
+    return ib_string
